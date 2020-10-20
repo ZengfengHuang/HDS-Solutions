@@ -1,4 +1,225 @@
 \section{Chapter 2}
 \begin{enumerate}
-    \item 
+    \item
+    (Sun Jialin)
+    
+    (a) Let $ X $ be 1 almost surely, $ t=1 $, Then $ P\{X \geq t\} = 1 = \dfrac{\bm{E}X}{t} $.
+	
+	(b) Let X satisfy $ P\{Y=1\}=P\{Y=-1\}= \dfrac{1}{2} $, $ t=1 $, thus $ \bm{E}Y=0 $ and $ Var(Y)=1 $, $ P\{|Y-\bm{E}Y|\geq 1 \}=1=\dfrac{Var(Y)}{t^{2}} $.
+	
+	\item
+	(Sun Jialin)
+	
+	(a) $ \phi'(z) = -z\phi(z) $
+	
+	(b) Use (a) and integration by parts for mutiple times:
+	\[\begin{split}
+	P\{Z \geq z\}&=\int_{z}^{+\infty}-\dfrac{1}{z}\phi'(z)dz=-\dfrac{1}{z}\phi'(z)-\int_{z}^{+\infty} \dfrac{\phi(z)}{z}dz\\&=\dfrac{1}{z}\phi(z)+\int_{z}^{+\infty}\dfrac{\phi'(z)}{z^{3}}dz= \dfrac{\phi(z)}{z}+\dfrac{\phi(z)}{z^{3}}+\int_{z}^{+\infty}\dfrac{3\phi(z)}{z^{4}}dz\\&=\phi(z)(\dfrac{1}{z}-\dfrac{1}{z^{3}})-\int_{z}^{+\infty}\dfrac{3\phi'(z)}{z^{5}}dz\\&=\phi(z)(\dfrac{1}{z}-\dfrac{1}{z^{3}}+\dfrac{3}{z^{5}})-\int_{z}^{+\infty}\dfrac{15\phi(z)}{z^{7}}dz
+	\end{split}\]
+	
+	\item
+	(Sun Jialin)
+	
+	\[\begin{split}
+	\dfrac{\bm{E}e^{\lambda X}}{e^{\lambda \delta}} &= \dfrac{\bm{E}[\sum_{k=0}^{+\infty}\frac{(\lambda X)^{k}}{k!}]}{\sum_{k=0}^{+\infty}\frac{(\lambda \delta)^{k}}{k!}} = \dfrac{\sum_{k=0}^{+\infty}\frac{(\lambda \delta)^{k}}{k!}\frac{\bm{E}X^{k}}{\delta^{k}}}{\sum_{k=0}^{+\infty}\frac{(\lambda \delta)^{k}}{k!}}\\& \geq
+	\dfrac{\sum_{k=0}^{+\infty}\frac{(\lambda \delta)^{k}}{k!}\inf \limits_{k}\frac{\bm{E}X^{k}}{\delta^{k}}}{\sum_{k=0}^{+\infty}\frac{(\lambda \delta)^{k}}{k!}}=\inf \limits_{k}\dfrac{\bm{E}X^{k}}{\delta^{k}}
+	\end{split}\]
+	
+	take infimum for $ \lambda $ on both sides, we get\[ \inf \limits_{k}\dfrac{\bm{E}X^{k}}{\delta^{k}} \leq \inf \limits_{\lambda>0} \dfrac{\bm{E}e^{\lambda X}}{e^{\lambda \delta}}. \]
+	
+	\item
+	(Sun Jialin)
+	
+	(a) $ \psi(0)=0 $, $ \psi'(0)=\dfrac{\bm{E}[Xe^{\lambda X}]}{\bm{E}e^{\lambda X}}|_{\lambda=0}=\mu $.
+	
+	(b) $ \psi''(\lambda)=\dfrac{\bm{E}[X^{2}e^{\lambda X}]}{\bm{E}[e^{\lambda X}]}-\dfrac{\bm{E}^{2}[Xe^{\lambda X}]}{\bm{E}^{2}[e^{\lambda X}]} $.
+	
+	
+	(c) Observe first that if a random variable $ Y $ ranges over $ [a,b] $, then its variance can be bounded:
+	\[ Var(Y)=Var(Y-\dfrac{a+b}{2}) \leq \bm{E}[|Y-\dfrac{a+b}{2}|^{2}] \leq \dfrac{(b-a)^{2}}{4}. \]
+	Now let $ P $ denote the distribution of $ X $ and let $ P_{\lambda} $ be the probability distribution with density $ x \to e^{-\psi(\lambda)}e^{\lambda x} $ with respect to $ P $. Then \[ \psi''(\lambda)=Var(Y) \leq \dfrac{(b-a)^{2}}{4} ,\]where $ Y $ is a random variable with distribution $ P_{\lambda} $ relative to $ P $. The sub-Gaussian property follows by Taylor's theorem, for some $ \theta \in [0,\lambda] $, \[ \psi(\lambda)=\psi(0)+\psi'(0)\lambda+\psi''(\theta)\dfrac{\lambda^{2}}{2} \leq \dfrac{(b-a)^{2}}{8}. \]
+	
+	\item
+	(Sun Jialin)
+	
+	(a) Using Jensen's Inequality, we have \[\begin{split} e^{\lambda \bm{E}X} \leq \bm{E}e^{\lambda X} \leq e^{\frac{\lambda^{2}\sigma^{2}}{2}+\lambda\mu}, \forall \lambda \in \mathbb{R} \Rightarrow \dfrac{\sigma^{2}}{2}\lambda^{2}+(\mu-\bm{E}X)\lambda \geq 0, \forall \lambda \in \mathbb{R} \Rightarrow
+	\bm{E}X=\mu \end{split}\]
+	
+	(b) Let $ h(\lambda)=e^{\frac{\lambda^{2}\sigma^{2}}{2}+\lambda \mu}-\bm{E}e^{\lambda X} $, then $ h(0)=h'(0)=0 $, sine $ h(\lambda) \geq 0 $, thus \[ h''(0)= \left(e^{\frac{\lambda^{2}\sigma^{2}}{2}+\lambda\mu}[\sigma^{2}+(\sigma^{2}\lambda+\mu)^{2}]-\bm{E}X^{2}e^{\lambda X}\right)|_{\lambda=0} \geq 0 . \]  we get $ \bm{E}[X^{2}] \leq \sigma^{2}+\mu^{2} $, thus $ Var(X) \leq \sigma^{2} $.
+	
+	
+	\item
+	(Sun Jialin)
+	
+	From the special case of Bennett's Inequality (2.23), we get \[ P(Z_{n} \leq \bm{E}[Z_{n}]-\sigma^{2}\delta) =
+	P(\sum_{i=1}^{n}X^{2}_{i} \leq E[\sum_{i=1}^{n}X^{2}_{i}]-n\sigma^{2}\delta) \leq \exp(-\dfrac{n\delta^{2}}{\frac{2}{n}\sum_{i=1}^{n}\bm{E}X^{4}_{i}}) \]
+	
+	A important property of sub-Gaussian variables is the growth of their moments (Boucheron 2013), if $ X \in \mathcal{G}(v) $, then $ \forall q \geq 1, \bm{E}[X^{2q}] \leq 2q!(2v)^{q} \leq q!(4v)^{q} $, thus here we have $ \bm{E}X^{4}_{i} \leq 16\sigma^{2} $, and the original objective inequality follows based on that.
+	
+	\item
+	(Sun Jialin)
+	
+	(a) Since $ \phi(x)=\frac{e^{x}-x-1}{x^{2}} $ is an increasing on $ \mathbb{R} $, we have \[\begin{split} \log \bm{E}[e^{\lambda X_{i}}] &\leq \bm{E}(e^{\lambda X_{i}}-\lambda X_{i}-1)=\bm{E}[X_{i}^{2} \frac{(e^{\lambda X_{i}}-\lambda X_{i}-1)}{X_{i}^{2}}] \\& \leq \bm{E}[X_{i}^{2}] \frac{(e^{\lambda b}-\lambda b-1)}{b^{2}} = 
+	\sigma_{i}^{2}\lambda^{2}[\frac{(e^{\lambda b}-\lambda b-1)}{(\lambda b)^{2}}] \end{split}\]
+	
+	(b) We can calculate the Cram\'er transformation of $ X_{i} $ using the bound for $ \psi(\lambda)=\log \bm{E}[e^{\lambda X_{i}}] $ given by (a), which is \[ \psi^{*}(t) = \sup \limits_{\lambda \geq 0}(\lambda t - \psi(t))=-\frac{\sigma^{2}_{i}}{b^{2}}h(\frac{bt}{\sigma_{i}^{2}}) \]
+	where $ h(t)=(1+t)\log(1+t)-t, t>0$. And $ \log \bm{E}[e^{\lambda \sum_{i=1}^{n} X_{i}}] \leq n\sigma^{2}\lambda^{2}[\frac{(e^{\lambda b}-\lambda b-1)}{(\lambda b)^{2}}] $, thus
+	\[ P(\sum_{i=1}^{n} X_{i} \geq n\delta) \leq \exp(-\frac{n\sigma^{2}}{b^{2}}h(\frac{b\delta}{\sigma^{2}})) \]
+	
+	(c) It can be proved that $ h(u) \geq \frac{u^{2}}{2(1+\frac{u}{3})} $, then \[ \exp(-\frac{n\sigma^{2}}{b^{2}}h(\frac{b\delta}{\sigma^{2}})) \leq \exp(-\frac{\delta^{2}}{2(\sigma^{2}+\frac{b\delta}{3})}) \]
+	which is a Bernstein type upper bound.
+	
+	\item
+	
+	\item
+	(Sun Jialin)
+	
+	(a)(*) Let $ m=\lfloor n\delta \rfloor $, then \[\begin{split} P(Z_{n} \leq \delta n)&=\sum_{k=0}^{m} \tbinom{n}{k}\alpha^{k}(1-\alpha)^{n-k} \leq (1+n\delta)\tbinom{n}{n\delta}\alpha^{n\delta}(1-\alpha)^{n(1-\delta)}
+	\\& \leq (\frac{\alpha}{\delta})^{n\delta}(\frac{1-\alpha}{1-\delta})^{n(1-\delta)}
+	\leq e^{-nD(\delta \parallel \alpha)} \end{split}\]
+	
+	(b) The Hoeffding bound is $ e^{-2n(\alpha-\delta)^{2}} $. So it suffices to prove that $ D(\delta\parallel\alpha) \geq 2(\delta-\alpha)^{2} $.
+	
+	\item
+	(Sun Jialin)
+	
+	(a) It can be derived from $ P(Z_{n} \leq \delta n) \geq P(Z_{n}=m) = \tbinom{n}{m}\alpha^{m}(1-\alpha)^{n-m} $.
+	
+	(b) It suffices to show that $ \tbinom{n}{m}(n+1)\tilde{\delta}^{m}(1-\tilde{\delta})^{n-m} \geq 1$, which follows from $ \sum_{l=0}^{n}\tbinom{n}{l}\tilde{\delta}^{l}(1-\tilde{\delta})^{n-l}=1 $ and the hint.
+	
+	(c) (*)Based on previous relations, $ P(Z_{n}\leq \delta n)\geq \frac{1}{n+1}e^{-nD(\tilde{\delta}\parallel\alpha)} $. However, since $ \tilde{\delta} \leq \delta $, $ D(\tilde{\delta}\parallel\alpha) \geq D(\delta\parallel\alpha) $, which means bounding it further to  $ \frac{1}{n+1}e^{-nD(\delta\parallel\alpha)} $ is not feasible.
+	
+	\item
+	
+	\item
+	(Sun Jialin)
+	
+	(a) Using the convexity of exponential function and Jensen's inequality,
+	\[\begin{split}
+	&e^{\lambda\bm{E}[\max \limits_{i=1,...,n} X_{i}]} \leq 
+	\bm{E}e^{\lambda \max \limits_{i=1,...,n} X_{i}} =
+	\bm{E}\max \limits_{i=1,...,n} e^{\lambda X_{i}} \leq
+	\sum_{i=1}^{n} \bm{E}e^{\lambda X_{i}} \leq
+	ne^{\lambda^{2}\sigma^{2}} \\& \Rightarrow
+	\bm{E}[\max \limits_{i=1,...,n} X_{i}] \leq \frac{\log n}{\lambda}+ \frac{\sigma^{2}\lambda}{2}
+	\end{split} \]
+	
+	Take infimum for $\lambda$ on right side, which yields 
+	\[ \bm{E} \max \limits_{i=1,...,n} \leq \sqrt{2\sigma^{2}\log n} \]
+	
+	(b) $ Z = \max \limits_{i=1,...,n} |X_{i}| = \max\{X_{1},...,X_{n},-X_{1},...,-X_{n}\} $. Notice that no independence assumptions are needed, (a) can be applied to Z, thus 
+	\[ \bm{E}Z\leq \sqrt{2\sigma^{2}\log(2n)} \leq 2\sqrt{\sigma^{2}\log n} \]
+	
+	\item
+	(Sun Jialin)
+	(a) $ \bm{E}[e^{\lambda(X_{1}+X_{2})}] \leq \bm{E}(e^{\lambda X_{1}})\bm{E}(e^{\lambda X_{2}})\leq e^{\frac{\lambda^{2}(\sigma^{2}_{1}+\sigma^{2}_{2})}{2}} $
+	
+	(b) By Cauchy-Schwarz inequality, $ \bm{E}[e^{\lambda(X_{1}+X_{2})}] \leq (\bm{E}e^{2\lambda X_{1}}\bm{E}e^{2\lambda X_{2}})^{\frac{1}{2}} \leq e^{\lambda^{2}(\sigma^{2}_{1}+\sigma^{2}_{2})} $
+	
+	(c) By Jensen's inequality, \[\begin{split}
+	    \bm{E}[\exp\{\lambda(X_{1}+X_{2})\}] & = \bm{E}[\exp\{\frac{\sigma_{1}}{\sigma_{1}+\sigma_{2}}(\frac{\sigma_{1}+\sigma_{2}}{\sigma_{1}}\lambda X_{1})+\frac{\sigma_{2}}{\sigma_{1}+\sigma_{2}}(\frac{\sigma_{1}+\sigma_{2}}{\sigma_{2}}\lambda X_{2})\}]\\ &\leq \frac{\sigma_{1}}{\sigma_{1}+\sigma_{2}}e^{(\sigma_{1}+\sigma_{2})^{2}\lambda^{2}/2}+ \frac{\sigma_{2}}{\sigma_{1}+\sigma_{2}}e^{(\sigma_{1}+\sigma_{2})^{2}\lambda^{2}/2}\\&= e^{(\sigma_{1}+\sigma_{2})^{2}\lambda^{2}/2}
+	\end{split}  \]
+	(d) (Xiong)
+	\begin{align*}
+	    \bm{E}\left[e^{\lambda X_1X_2}\right] &\leq \bm{E}\left[e^{\frac{\lambda^2 X_1^2}{2}\sigma_2^2}\right], \quad\quad(\mbox{by independecne of $X_1$ and $X_2$})\\
+	    &\leq  \frac{1}{\sqrt{1 - \lambda^2 \sigma_1^2 \sigma_2^2}}, \quad\quad(\mbox{by IV in Theorem 2.6}) \\
+	    &= e^{-\frac{1}{2}\ln{(1 - \lambda^2 \sigma_1^2\sigma_2^2)}} \\
+	    &\leq e^\frac{\lambda^2 \sigma_1^2\sigma_2^2}{2(1 - \lambda^2\sigma_1^2\sigma_2^2)}, \quad\quad(\mbox{by $\ln{1 - x} \geq \frac{-x}{1 - x}$}) \\
+	    &\leq e^{\lambda^2 \sigma_1^2 \sigma_2^2}, \quad\quad(\mbox{for $|\lambda| \leq \frac{1}{\sqrt{2}\sigma_1\sigma_2}$})
+	\end{align*}
+	
+	\item
+	(a) 
+	\begin{align*}
+	    \bm{E}\left[\left(X - \bm{E}[X]\right)^2\right] &= \int_{0}^{\infty} P\left(\left(X - E[X]\right)^2 \geq t\right)dt \\
+	    &=\int_{0}^{\infty} P\left(\left|X - E[X]\right| \geq \sqrt{t}\right)dt \\
+	    &\leq  c_1 \int_{0}^{\infty}e^{-c_2t}dt = \frac{c_1}{c_2}
+	\end{align*}
+	(b) see the \href{https://math.stackexchange.com/questions/3144688/mean-concentration-implies-median-concentration}{reference}.
+	
+	(c)
+	\item
+	(Sun Jialin)
+	
+	Let $ g(x)=\Vert \hat{f_{n}}-f \Vert_{1} $, then $ g $ satisfies a bounded differences property,
+	\[\begin{split}
+	|g(x)-g(x^{(k)})|&=|\Vert \hat{f}_{n}-f \Vert_{1}-\Vert \hat{f}^{(k)}_{n}-f \Vert_{1}|\leq
+	\Vert \hat{f}_{n}-\hat{f}^{(k)}_{n} \Vert_{1} \\&
+	=\int_{-\infty}^{+\infty}\frac{1}{nh}|K(\frac{x-x_{k}}{h})-K(\frac{x-x^{'}_{k}}{h})|dx\leq \frac{2}{n}
+	\end{split}  \]
+	
+	By Corollary 2.21 (Bounded differences inequality),
+	\[ P(|\Vert \hat{f}_{n}-f \Vert_{1}) \geq \bm{E}|\Vert \hat{f}_{n}-f \Vert_{1}+\delta \leq e^{-\frac{n\delta^{2}}{2}} \]
+	
+	\item
+	(Sun Jialin)
+	
+	(a) $ S_{n} $ satisfies a bounded differences property,
+	\[ |S_{n}-S^{(k)}_{n}|\leq \Vert x_{k}-x^{'}_{k} \Vert_{H} \leq 2b_{k} \]
+	
+	By Corollary 2.21 (Bounded differences inequality),
+	\[ P(|S_{n}-\bm{E}S_{n}|\geq n\delta) \leq 2e^{-\frac{n\delta^{2}}{2b^{2}}} \]
+	
+	(b) As $ \{X_{i}\} $ are independent, thus \[ na=\sqrt{\sum_{i=1}^{n}\bm{E}[\Vert X_{i} \Vert^{2}_{\mathbb{H}}]} \geq \bm{E}[\Vert \sum_{i=1}^{n}X_{i} \Vert_{\mathbb{H}}]= \bm{E}S_{n} \]
+	
+	then $ P(S_{n}\geq na+n\delta) \leq P(S_{n}-\bm{E}S_{n}\geq n\delta) \leq e^{-\frac{n\delta^{2}}{2b^{2}}} $.
+	
+	\item
+	(Sun Jialin)
+	
+	$ Q \in \mathcal{S}^{n\times n}_{+} \Rightarrow Q=A^{T}\Lambda A $, then $ Z=X^{T}QX=(AX)^{T}\Lambda AX=Y^{T}\Lambda Y $, where $ A $ is orthogonal and $ Y=AX\sim \mathcal{N}(0,I) $. Observe that $ P(Z\geq tr(Q)+\sigma t)=P(\sum \lambda_{i}Y^{2}_{i}\geq \sum \lambda_{i}+\sigma t) $, since $ \lambda_{i}Y^{2}_{i} $ is sub-Exponential with $ (2\lambda_{i},4\lambda_{i}) $, thus $ \sum \lambda_{i}Y^{2}_{i} $ is sub-Exponential with $ (2\sqrt{\sum\lambda^{2}_{i}},4\max \limits_{i} \lambda_{i}) $. Therefore,
+	\[\begin{split}
+	    |P(\sum \lambda_{i}Y^{2}_{i} - \sum \lambda_{i}| \geq t) & \leq 2\exp\{-\min(\frac{t^{2}}{8\sum\lambda^{2}_{i}},\frac{t}{8\max \limits_{i} \lambda_{i}})\} \\
+	    & = 2\exp\{-\min(\frac{t^{2}}{8\Vert Q\Vert^{2}_{F}},\frac{t}{8\Vert Q \Vert_{2}})\}.
+	\end{split} \]
+	
+	\item
+	(Sun Jialin)
+	
+	(a) From the definition of $ \Vert X \Vert_{\psi_{q}} $, we have $ \bm{E}e^{\frac{|X|^{2}}{\Vert X \Vert_{\psi_{q}}}} \leq 2 $. On the other side, we also have $ \bm{E}e^{\frac{|X|^{2}}{\Vert X \Vert_{\psi_{q}}}} \geq P(|X|>t)\exp(\frac{t^{q}}{\Vert X \Vert_{\psi_{q}}}) $. Thus $ P(|X|>t) \leq 2\exp(-\frac{t^{q}}{\Vert X \Vert_{\psi_{q}}}) $.
+	
+	(b)(*) Let $ Y=e^{\frac{|X|^{q}}{t^{q}}} $, then \[\begin{split} \bm{E}Y &= \int_{0}^{+\infty}P(Y>s)ds=1+\int_{1}^{+\infty}P(|X|>t\ln^{\frac{1}{q}}s)ds \\&
+	\leq 1+\int_{1}^{+\infty}c_{1}\exp(-c_{2}t^{q}\ln s)ds = \frac{c_{1}s^{1-c_{2}t^{q}}}{1-c_{2}t^{q}}|^{+\infty}_{1}+1
+	\end{split}\]
+	
+	$ \bm{E}Y<+\infty $ if $ t>(\frac{1}{c_{2}})^{\frac{1}{q}} $, thus $ \Vert X \Vert_{\psi_{q}} $ is finite.
+	
+	\item
+	(Sun Jialin)
+	
+	Based on the fact that $ \psi $ is strictly increasing convex and the definition of Orlicz norm $ \sigma $,
+	
+	\[\begin{split}
+	\psi \left (\frac{\bm{E}[\max \limits_{i=1,...,n} |X_{i}|]}{\sigma} \right ) & \leq \bm{E}\left [\psi \left (\frac{\max \limits_{i=1,...,n} |X_{i}|}{\sigma} \right )\right ] = \bm{E}\left [\max \limits_{i=1,...,n} \psi \left (\frac{|X_{i}|}{\sigma} \right ) \right ] \\& \leq \bm{E}\left [\sum_{i=0}^{n}\psi \left (\frac{|X_{i}|}{\sigma} \right ) \right ] \leq n \\& \Rightarrow \bm{E}\left [\max \limits_{i=1,...,n} |X_{i}| \right] \leq \sigma\psi^{-1}(n)
+	\end{split}\]
+	
+	\item
+	(Sun Jialin)
+	
+	Using Markov inequality and Rosenthal's inequality on $ (\sum_{i=0}^{n} X_{i})^{2m} $,
+	\[\begin{split}
+	P(|\sum_{i=0}^{n}X_{i}|\geq n\delta) & \leq \dfrac{\bm{E}\left[ (\sum_{i=1}^{n} X_{i})^{2m} \right]}{(n\delta)^{2m}}
+	\leq \dfrac{R_{m} \left \{ \sum_{i=1}^{n}\bm{E}\left[ X^{2m}_{i} \right] + \left(\sum_{i=1}^{n}\bm{E}\left[X^{2}_{i}\right]\right)^{m} \right \}}{(n\delta)^{2m}} \\&
+	\leq \dfrac{R_{m} \left \{ nC^{2m}_{m} + \left(\sum_{i=1}^{n}\bm{E}\left[X^{2}_{i}\right]\right)^{m} \right \}}{(n\delta)^{2m}} \\&
+	\leq B_{m}\left(\frac{1}{\sqrt{n}\delta}\right)^{2m}
+	\end{split}\]
+	
+	where $ B_{m} $ is a constant depending on $ C_{m} $ and $ m $.
+	
+	\item
+	(Sun Jialin)
+	
+	(a) From exercise 2.9, we have $ P(V_{j}=1)=P(\rho_{H}(X,z^{j}))\leq e^{-nD(\delta\parallel 1/2)} $, thus
+	$ P(V\geq 1)=1-\prod_{i=1}^{N}P(V_{i}=0) \leq 1-(1-e^{-nD(\delta\parallel 1/2)})^{N} $, which goes to zero as $ n $ goes to infinity.
+	
+	(b)
+	
+	(i) Let $ P(V\geq 1) := p $, it suffices to show that $ p\bm{E}V^{2} \geq (EV)^{2} $. Obeserve that the left and right side equal to $ p^{2}\bm{E}[V^{2}_{+}], p^{2}(\bm{E}V_{+})^{2} $ respectively, then the inequality follows by $ Var(V_{+}) \geq 0 $.
+	
+	(ii) Let $P(V_{j}=1):=p$, then the tail bounds from exercise 2.10 show $ p\geq \frac{1}{n}e^{-D(\delta\parallel 1/2)} $.
+	By (i), $ \bm{E}V=np, \bm{E}V^{2}=np+n(n-1)p^{2} $, $ P(V\geq 1) \geq \frac{np}{1+(n-1)p} $, thus $ P(V\geq 1) \to 1 $ as $ n \to \infty $.
+	
+	\item
+	
+	
 \end{enumerate}
